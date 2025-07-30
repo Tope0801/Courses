@@ -53,8 +53,7 @@ function App() {
               Find the Perfect Course for You
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our comprehensive collection of technology and design courses. 
-              Filter by location, technology, duration, and price to find the perfect fit.
+              We provide specialized courses, ranging from Senior High School strands to 2-Year Programs and Short Courses, that are designed to provide you with hands-on skills and industry-relevant knowledge for your future careers.
             </p>
           </div>
           
