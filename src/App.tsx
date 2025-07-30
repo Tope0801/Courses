@@ -52,7 +52,7 @@ function App() {
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
               Find the Perfect Course for You
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-#2e398d-600 max-w-2xl mx-auto">
               Explore our comprehensive collection of technology and design courses. 
               Filter by location, technology, duration, and price to find the perfect fit.
             </p>
