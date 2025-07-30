@@ -49,7 +49,7 @@ function App() {
         {/* Search Section */}
         <div className="mb-8">
           <div className="text-center mb-6">
-            <h2 className="text-3xl font-bold text-#2e398d-900 mb-2">
+            <h2 className="text-3xl font-bold text-blue-900 mb-2">
               Find the Perfect Course for You
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
