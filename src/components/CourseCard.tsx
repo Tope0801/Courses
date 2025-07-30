@@ -61,32 +61,32 @@ export default function CourseCard({ course }: CourseCardProps) {
       {/* Course Content */}
       <div className="p-6 flex flex-col h-full">
         {/* Title */}
-        <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+        <h3 className="text-lg font-bold text-gray-900 mb-3 break-words hyphens-auto leading-tight">
           {course.title}
         </h3>
 
         {/* Description */}
-        <p className="text-gray-600 mb-4 line-clamp-3 text-sm leading-relaxed">
+        <p className="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed">
           {course.description}
         </p>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
-          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getProgramColor(course.program)}`}>
+          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium max-w-32 ${getProgramColor(course.program)}`}>
             <GraduationCap className="h-3 w-3 mr-1" />
-            {course.program}
+            <span className="truncate">{course.program}</span>
           </span>
-          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getBranchColor(course.branch)}`}>
+          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium max-w-24 ${getBranchColor(course.branch)}`}>
             <MapPin className="h-3 w-3 mr-1" />
-            {course.branch}
+            <span className="truncate">{course.branch}</span>
           </span>
         </div>
 
         {/* Technology */}
         <div className="mb-4">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 max-w-full">
             <Tag className="h-4 w-4 mr-1" />
-            {course.technology}
+            <span className="truncate">{course.technology}</span>
           </span>
         </div>
 
