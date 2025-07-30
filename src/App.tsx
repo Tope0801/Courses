@@ -50,7 +50,7 @@ function App() {
         <div className="mb-8">
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              Discover Your Next Course
+              Find the Perfect Course for You
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Explore our comprehensive collection of technology and design courses. 
