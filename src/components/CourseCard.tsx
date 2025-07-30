@@ -83,15 +83,18 @@ export default function CourseCard({ course }: CourseCardProps) {
         </div>
 
         {/* Technology */}
-        <div className="mb-4 flex-grow">
+        <div className="mb-4">
           <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
             <Tag className="h-4 w-4 mr-1" />
             {course.technology}
           </span>
         </div>
 
+        {/* Spacer to push price/button to bottom */}
+        <div className="flex-grow"></div>
+
         {/* Price and CTA */}
-        <div className="flex items-center justify-between mt-auto pt-2">
+        <div className="flex items-center justify-between pt-4">
           <span className="text-2xl font-bold text-gray-900">
             {formatPrice(course.price)}
           </span>
