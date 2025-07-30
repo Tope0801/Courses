@@ -90,11 +90,8 @@ export default function CourseCard({ course }: CourseCardProps) {
           </span>
         </div>
 
-        {/* Spacer to push price/button to bottom */}
-        <div className="flex-grow"></div>
-
         {/* Price and CTA */}
-        <div className="flex items-center justify-between pt-4">
+        <div className="flex items-center justify-between mt-4">
           <span className="text-2xl font-bold text-gray-900">
             {formatPrice(course.price)}
           </span>

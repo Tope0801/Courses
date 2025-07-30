@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase, Course } from '../lib/supabase'
 
-const ITEMS_PER_PAGE = 10
+const ITEMS_PER_PAGE = 12
 
 interface UseCoursesProps {
   searchTerm?: string

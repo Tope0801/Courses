@@ -54,7 +54,7 @@ export default function Pagination({
     <div className="flex flex-col items-center space-y-4 mt-8">
       {/* Results info */}
       <div className="text-sm text-gray-600">
-        Showing {((currentPage - 1) * 10) + 1} to {Math.min(currentPage * 10, totalCount)} of {totalCount} courses
+        Showing {((currentPage - 1) * 12) + 1} to {Math.min(currentPage * 12, totalCount)} of {totalCount} courses
       </div>
 
       {/* Pagination controls */}
