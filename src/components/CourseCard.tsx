@@ -59,7 +59,7 @@ export default function CourseCard({ course }: CourseCardProps) {
       </div>
 
       {/* Course Content */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col h-full">
         {/* Title */}
         <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
           {course.title}
@@ -83,7 +83,7 @@ export default function CourseCard({ course }: CourseCardProps) {
         </div>
 
         {/* Technology */}
-        <div className="mb-4">
+        <div className="mb-4 flex-grow">
           <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
             <Tag className="h-4 w-4 mr-1" />
             {course.technology}
@@ -91,7 +91,7 @@ export default function CourseCard({ course }: CourseCardProps) {
         </div>
 
         {/* Price and CTA */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-auto pt-2">
           <span className="text-2xl font-bold text-gray-900">
             {formatPrice(course.price)}
           </span>
