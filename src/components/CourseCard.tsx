@@ -65,11 +65,6 @@ export default function CourseCard({ course }: CourseCardProps) {
           {course.title}
         </h3>
 
-        {/* Description */}
-        <p className="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed">
-          {course.description}
-        </p>
-
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
           <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium max-w-32 ${getProgramColor(course.program)}`}>

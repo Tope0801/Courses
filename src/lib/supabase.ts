@@ -8,7 +8,6 @@ export const supabase = createClient(supabaseUrl, supabaseKey)
 export type Course = {
   id: number
   title: string
-  description: string
   price: number
   duration: string
   branch: string
