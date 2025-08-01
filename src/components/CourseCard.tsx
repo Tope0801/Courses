@@ -42,9 +42,9 @@ export default function CourseCard({ course }: CourseCardProps) {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
       {/* Course Image */}
-      <div className="h-48 bg-gradient-to-r from-blue-500 to-teal-500 overflow-hidden">
+      <div className="h-48 bg-gradient-to-r from-blue-500 to-teal-500 overflow-hidden flex-shrink-0">
         {course.image_url ? (
           <img
             src={course.image_url}
@@ -58,8 +58,8 @@ export default function CourseCard({ course }: CourseCardProps) {
         )}
       </div>
 
-      {/* Course Content */}
-      <div className="p-6 flex flex-col h-full min-h-[280px]">
+      {/* Course Content - Flexible area */}
+      <div className="p-6 flex flex-col flex-grow">
         {/* Title */}
         <h3 className="text-lg font-bold text-gray-900 mb-3 break-words hyphens-auto leading-tight">
           {course.title}
@@ -67,43 +67,50 @@ export default function CourseCard({ course }: CourseCardProps) {
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
-          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium max-w-32 ${getProgramColor(course.program)}`}>
-            <GraduationCap className="h-3 w-3 mr-1" />
-            <span className="truncate">{course.program}</span>
+          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getProgramColor(course.program)}`}>
+            <GraduationCap className="h-3 w-3 mr-1 flex-shrink-0" />
+            <span className="truncate max-w-[120px]">{course.program}</span>
           </span>
-          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium max-w-24 ${getBranchColor(course.branch)}`}>
-            <MapPin className="h-3 w-3 mr-1" />
-            <span className="truncate">{course.branch}</span>
+          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getBranchColor(course.branch)}`}>
+            <MapPin className="h-3 w-3 mr-1 flex-shrink-0" />
+            <span className="truncate max-w-[80px]">{course.branch}</span>
           </span>
         </div>
 
-        {/* Technology */}
-        <div className="mb-4 flex-grow">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 max-w-full">
-            <Tag className="h-4 w-4 mr-1" />
+        {/* Technology - This will expand to fill available space */}
+        <div className="mb-6 flex-grow">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 w-full max-w-full">
+            <Tag className="h-4 w-4 mr-2 flex-shrink-0" />
             <span className="truncate">{course.technology}</span>
           </span>
         </div>
 
-        {/* Price and CTA */}
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-          <span className="text-2xl font-bold text-gray-900">
-            {formatPrice(course.price)}
-          </span>
-          {course.link ? (
-            <a
-              href={course.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 flex-shrink-0"
-            >
-              View Details
-            </a>
-          ) : (
-            <button className="px-4 py-2 bg-gray-400 text-white text-sm font-medium rounded-md cursor-not-allowed flex-shrink-0">
-              No Link
-            </button>
-          )}
+        {/* Price and CTA - Fixed at bottom */}
+        <div className="border-t border-gray-100 pt-4 mt-auto">
+          <div className="flex items-center justify-between">
+            <div className="text-2xl font-bold text-gray-900">
+              {formatPrice(course.price)}
+            </div>
+            <div className="ml-4">
+              {course.link ? (
+                <a
+                  href={course.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+                >
+                  View Details
+                </a>
+              ) : (
+                <button 
+                  disabled
+                  className="inline-block px-4 py-2 bg-gray-400 text-white text-sm font-medium rounded-md cursor-not-allowed"
+                >
+                  No Link
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
