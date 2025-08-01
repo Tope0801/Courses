@@ -59,7 +59,7 @@ export default function CourseCard({ course }: CourseCardProps) {
       </div>
 
       {/* Course Content */}
-      <div className="p-6 flex flex-col h-full">
+      <div className="p-6 flex flex-col h-full min-h-[280px]">
         {/* Title */}
         <h3 className="text-lg font-bold text-gray-900 mb-3 break-words hyphens-auto leading-tight">
           {course.title}
@@ -78,7 +78,7 @@ export default function CourseCard({ course }: CourseCardProps) {
         </div>
 
         {/* Technology */}
-        <div className="mb-4">
+        <div className="mb-4 flex-grow">
           <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 max-w-full">
             <Tag className="h-4 w-4 mr-1" />
             <span className="truncate">{course.technology}</span>
@@ -86,7 +86,7 @@ export default function CourseCard({ course }: CourseCardProps) {
         </div>
 
         {/* Price and CTA */}
-        <div className="flex items-center justify-between mt-4">
+        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
           <span className="text-2xl font-bold text-gray-900">
             {formatPrice(course.price)}
           </span>
@@ -95,12 +95,12 @@ export default function CourseCard({ course }: CourseCardProps) {
               href={course.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+              className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 flex-shrink-0"
             >
               View Details
             </a>
           ) : (
-            <button className="px-3 py-1.5 bg-gray-400 text-white text-xs font-medium rounded-md cursor-not-allowed">
+            <button className="px-4 py-2 bg-gray-400 text-white text-sm font-medium rounded-md cursor-not-allowed flex-shrink-0">
               No Link
             </button>
           )}
