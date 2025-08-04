@@ -13,7 +13,6 @@ export type Course = {
   branch: string
   technology: string
   program: string
-  image_url?: string
   created_at?: string
   updated_at?: string
   link?: string

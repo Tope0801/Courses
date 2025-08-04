@@ -43,21 +43,6 @@ export default function CourseCard({ course }: CourseCardProps) {
 
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col">
-      {/* Course Image */}
-      <div className="h-48 bg-gradient-to-r from-blue-500 to-teal-500 overflow-hidden flex-shrink-0">
-        {course.image_url ? (
-          <img
-            src={course.image_url}
-            alt={course.title}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <Tag className="h-16 w-16 text-white opacity-50" />
-          </div>
-        )}
-      </div>
-
       {/* Course Content - Flexible area */}
       <div className="p-6 flex flex-col flex-grow">
         {/* Title */}
