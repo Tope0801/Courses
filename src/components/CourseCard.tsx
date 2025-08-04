@@ -88,10 +88,12 @@ export default function CourseCard({ course }: CourseCardProps) {
         {/* Price and CTA - Fixed at bottom */}
         <div className="border-t border-gray-100 pt-4 mt-auto">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-gray-900">
-              {formatPrice(course.price)}
-            </div>
-            <div className="ml-4">
+            {course.price > 0 && (
+              <div className="text-2xl font-bold text-gray-900">
+                {formatPrice(course.price)}
+              </div>
+            )}
+            <div className={course.price > 0 ? "ml-4" : ""}>
               {course.link ? (
                 <a
                   href={course.link}
