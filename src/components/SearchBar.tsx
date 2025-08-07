@@ -7,14 +7,6 @@ interface SearchBarProps {
 }
 
 export default function SearchBar({ searchTerm, onSearchChange }: SearchBarProps) {
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault()
-      // Force trigger the search by calling onSearchChange with current value
-      onSearchChange(searchTerm)
-    }
-  }
-
   return (
     <div className="relative">
       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -25,7 +17,6 @@ export default function SearchBar({ searchTerm, onSearchChange }: SearchBarProps
         placeholder="Search courses by title or keyword..."
         value={searchTerm}
         onChange={(e) => onSearchChange(e.target.value)}
-        onKeyDown={handleKeyDown}
         className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
       />
     </div>
