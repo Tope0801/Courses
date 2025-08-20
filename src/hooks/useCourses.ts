@@ -58,7 +58,7 @@ export default function useCourses({ searchTerm = '', filters }: UseCoursesProps
 
     // Apply search filter
     if (searchTerm) {
-      query = query.or(`title.ilike.%${searchTerm}%,technology.ilike.%${searchTerm}%,tags.ilike.%${searchTerm}%`)
+      query = query.or(`title.ilike.%${searchTerm}%,tags.ilike.%${searchTerm}%`)
     }
 
     // Apply filters
