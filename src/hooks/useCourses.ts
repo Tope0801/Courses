@@ -59,6 +59,7 @@ export default function useCourses({ searchTerm = '', filters }: UseCoursesProps
     // Apply search filter
     if (searchTerm) {
       query = query.or(`title.ilike.%${searchTerm}%,tags.ilike.%${searchTerm}%`)
+        .order('title', { ascending: true })
     }
 
     // Apply filters
@@ -91,7 +92,7 @@ export default function useCourses({ searchTerm = '', filters }: UseCoursesProps
   }
 
   const getSortColumn = () => {
-    if (!filters?.sortBy) return 'title'
+    if (!filters?.sortBy || searchTerm) return 'title'
     
     switch (filters.sortBy) {
       case 'title-asc':
@@ -106,7 +107,7 @@ export default function useCourses({ searchTerm = '', filters }: UseCoursesProps
   }
 
   const getSortOrder = () => {
-    if (!filters?.sortBy) return true
+    if (!filters?.sortBy || searchTerm) return true
     
     switch (filters.sortBy) {
       case 'title-asc':
