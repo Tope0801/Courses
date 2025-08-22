@@ -59,7 +59,6 @@ export default function useCourses({ searchTerm = '', filters }: UseCoursesProps
     // Apply search filter
     if (searchTerm) {
       query = query.or(`title.ilike.%${searchTerm}%,tags.ilike.%${searchTerm}%`)
-        .order('title', { ascending: true })
     }
 
     // Apply filters
@@ -140,7 +139,24 @@ export default function useCourses({ searchTerm = '', filters }: UseCoursesProps
 
       if (error) throw error
 
-      setCourses(data || [])
+      let processedData = data || []
+      
+      // If searching, prioritize title matches over tag matches
+      if (searchTerm && processedData.length > 0) {
+        processedData = processedData.sort((a, b) => {
+          const aHasTitleMatch = a.title.toLowerCase().includes(searchTerm.toLowerCase())
+          const bHasTitleMatch = b.title.toLowerCase().includes(searchTerm.toLowerCase())
+          
+          // If one has title match and other doesn't, prioritize title match
+          if (aHasTitleMatch && !bHasTitleMatch) return -1
+          if (!aHasTitleMatch && bHasTitleMatch) return 1
+          
+          // If both have title matches or both don't, maintain original order
+          return 0
+        })
+      }
+      
+      setCourses(processedData)
     } catch (err) {
       console.error('Error fetching courses:', err)
       setError(err instanceof Error ? err.message : 'An error occurred')
