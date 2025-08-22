@@ -143,15 +143,27 @@ export default function useCourses({ searchTerm = '', filters }: UseCoursesProps
       
       // If searching, prioritize title matches over tag matches
       if (searchTerm && processedData.length > 0) {
+        const searchLower = searchTerm.toLowerCase()
+        
         processedData = processedData.sort((a, b) => {
-          const aHasTitleMatch = a.title.toLowerCase().includes(searchTerm.toLowerCase())
-          const bHasTitleMatch = b.title.toLowerCase().includes(searchTerm.toLowerCase())
+          const aTitleLower = a.title.toLowerCase()
+          const bTitleLower = b.title.toLowerCase()
           
-          // If one has title match and other doesn't, prioritize title match
-          if (aHasTitleMatch && !bHasTitleMatch) return -1
-          if (!aHasTitleMatch && bHasTitleMatch) return 1
+          // Check for exact matches in title
+          const aExactTitleMatch = aTitleLower === searchLower
+          const bExactTitleMatch = bTitleLower === searchLower
           
-          // If both have title matches or both don't, maintain original order
+          if (aExactTitleMatch && !bExactTitleMatch) return -1
+          if (!aExactTitleMatch && bExactTitleMatch) return 1
+          
+          // Check for partial matches in title
+          const aPartialTitleMatch = aTitleLower.includes(searchLower)
+          const bPartialTitleMatch = bTitleLower.includes(searchLower)
+          
+          if (aPartialTitleMatch && !bPartialTitleMatch) return -1
+          if (!aPartialTitleMatch && bPartialTitleMatch) return 1
+          
+          // If both have same type of title match or no title match, maintain original order
           return 0
         })
       }
